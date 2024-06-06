@@ -1,0 +1,59 @@
+tasks = []
+
+
+def addTask():
+  task = input("Bitte, eine Aufgabe hinzufügen: ")
+  tasks.append(task)
+  print(f"'{task}' hinzugefügt.")
+
+
+def listTasks():
+  if not tasks:
+    print("Du hast keine Aufgaben.")
+          
+  else:
+    print("Aktuelle Aufgaben:")
+    for index, task in enumerate(tasks):
+      print(f"Aufgabe #{index}. {task}")
+
+
+def deleteTask():
+  listTasks()
+  try:
+    taskToDelete = int(input("# eigeben um die Aufgabe zu löschen: "))
+    if taskToDelete >= 0 and taskToDelete < len(tasks):
+      tasks.pop(taskToDelete)
+      print(f"Aufgabe {taskToDelete} gelöscht.")
+    else:
+      print(f"Aufgabe #{taskToDelete} nicht gefunden.")
+  except:
+    print("Falasche Eingabe.")
+
+
+if __name__ == "__main__":
+  ### Create a loop to run the app
+  print("Willkommen zur To-do-Liste von Ognjen :)")
+  while True:
+    print("\n")
+    print("Bitte eine der Optionen eingeben")
+    print("------------------------------------------")
+    print("1. Neue Aufgabe hinzufügen")
+    print("2. Aufgabe löschen")
+    print("3. Liste")
+    print("4. Verlassen")
+
+    choice = input("Die Wahl eingeben: ")
+
+    if (choice == "1"):
+      addTask()
+    elif (choice == "2"):
+      deleteTask()
+    elif (choice == "3"):
+        
+      listTasks()
+    elif (choice == "4"):
+      break
+    else:
+      print("Falsche Eingabe, versuchen Sie es nochmal.")
+
+  print("Ciao 👋")
